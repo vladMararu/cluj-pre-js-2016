@@ -5,12 +5,40 @@
   background-repeat: no-repeat;
 }
 
+#container-in-first-container{
+
+}
+
+div.small-left-container{
+  color: #f2f2f2;
+  //height: 25px;
+  display: inline;
+
+}
+
+div.small-left-container>h3{
+  color: #cccccc;
+}
+
+div.small-left-container img{
+  height: 23px;
+  padding: 20px;
+}
+
+div.small-left-container img:first-child{
+  height: 39px;
+  padding: 20px;
+}
+
 #form{
   border-radius: 5px ;
-  margin: 1px auto;
+  //margin: 1px auto;
+  display: inline;
   width: 350px;
   height: 350px;
   background-color: #FFFFFF;
+
+
 }
 
 #form>h3 {
@@ -20,7 +48,8 @@
 #form>p:nth-child(3){
   color: #8c8c8c;
   text-align: center;
-  margin: 0;
+  font-size: 14px;
+  margin: 2px;
 }
 
 #form>p:nth-child(4){
@@ -28,11 +57,19 @@
   font-size: 10px;
   text-align: center;
   margin: 0;
-
 }
 
+#form>p:nth-child(6){
+  color: #b3b3b3;
+  font-size: 11px;
+  text-align: center;
+  margin: 25px;
+}
+
+a:link, a:visited { color: #0099ff; text-decoration: none}
+
 label{
-  
+  line-height: 2;
 }
 
 #text-areas{
@@ -43,38 +80,31 @@ label{
 
 input{
     background-color : #f2f2f2;
+    border: 0px solid;
+    height: 25px;
+
 }
 
 #button{
-	padding:		7px 40px;
+	padding:		9px 40px;
 	font-size:		14px;
 	background-color:	#0099ff;
 	font-weight:lighter;;
 	color:			#FFFFFF;
   border: 1px solid;
-  border-radius: 3px;
+  border-radius: 4px;
 
 }
 
 .buttonContainer{
   text-align: center;
   font-weight: 900;
+  margin: 12px;
 }
 
-#small-left-container{
-  color: #f2f2f2;
-}
 
-#small-left-container>h3{
-  color: #cccccc;
-}
-#logo-top{
-  height: 50px;
-}
 
-a:link{ color: #f2f2f2;}
 
-a:visited { color: #f2f2f2;}
 
 #second-big-container{
   background-color: #FFFFFF;
