@@ -5,13 +5,12 @@
   background-repeat: no-repeat;
 }
 
-#container-in-first-container{
-
-}
+#container-in-first-container{}
 
 div.small-left-container{
   color: #f2f2f2;
-  //height: 25px;
+  width: 45%;
+
   display: inline;
 
 }
@@ -34,10 +33,9 @@ div.small-left-container img:first-child{
   border-radius: 5px ;
   //margin: 1px auto;
   display: inline;
-  width: 350px;
-  height: 350px;
+  width: 55%;
+  //height: 350px;
   background-color: #FFFFFF;
-
 
 }
 
@@ -102,12 +100,52 @@ input{
   margin: 12px;
 }
 
-
-
-
-
-#second-big-container{
+div.second-big-container{
   background-color: #FFFFFF;
+  text-align: center;
+  height: 300px;
+}
+
+
+div.second-big-container h2 {
+  font-size: 28px;
+}
+
+div#inner-cont{
+  overflow: hidden;
+}
+
+div.second-big-container>p{
+  color: #b3b3b3;
+  font-size: 15px;
+
+}
+
+div#first-cont{
+  float: left;
+  width: 33.333%;
+
+}
+
+div#inner-cont p:first-of-type{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+div#inner-cont p:last-of-type{
+  font-size: 15px;
+  color: #b3b3b3;
+}
+
+div#second-cont{
+  float: left;
+  width: 33.333%;
+}
+
+div#third-cont{
+    float: left;
+    width: 33.333%;
+
 }
 
 #third-big-container{
@@ -115,6 +153,67 @@ input{
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center;
+  font-size: 22px;
+  text-align: center;
+  color:  #ffffff;
+  height: 300px;
+}
+
+#third-big-container p:first-of-type{
+  font-weight: bold;
+
+}
+
+#third-big-container p:last-of-type{
+  //width: 400px;
+
+}
+
+img#phone-logo{
+  vertical-align: top;
+  margin-top: 90px;
+  margin-left: -70px;
+}
+
+img#clock-logo{
+  margin-top: 140px;
+  margin-left: px;
+  margin-right: px;
+}
+
+img#place-logo{
+  margin-top: px;
+  margin-bottom: px;
+  margin-left: px;
+  margin-right: px;
+}
+
+img#music-logo{
+  margin-top: px;
+  margin-bottom: px;
+  margin-left: px;
+  margin-right: px;
+}
+
+img#weather-logo{
+  margin-top: px;
+  margin-bottom: px;
+  margin-left: px;
+  margin-right: px;
+}
+
+img#phtot-logo{
+  margin-top: px;
+  margin-bottom: px;
+  margin-left: px;
+  margin-right: px;
+}
+
+img#mail-logo{
+  margin-top: px;
+  margin-bottom: px;
+  margin-left: px;
+  margin-right: px;
 }
 
 #forth-big-container{
