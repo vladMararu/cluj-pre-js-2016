@@ -169,6 +169,7 @@ div#third-cont{
 
 }
 
+
 img#phone-logo{
   vertical-align: top;
   margin-top: 90px;
@@ -176,44 +177,38 @@ img#phone-logo{
 }
 
 img#clock-logo{
-  margin-top: 140px;
-  margin-left: px;
-  margin-right: px;
+  vertical-align: bottom;
+  margin-top: 150px;
+  margin-left: -20px;
 }
 
-img#place-logo{
-  margin-top: px;
-  margin-bottom: px;
-  margin-left: px;
-  margin-right: px;
+img#position-logo{
+  vertical-align: bottom;
+  margin-left: 20px;
+  margin-bottom: 30px;
 }
 
 img#music-logo{
-  margin-top: px;
-  margin-bottom: px;
-  margin-left: px;
-  margin-right: px;
+  vertical-align: top;
+  margin-top: 70px;
+  margin-left: 50px;
 }
 
 img#weather-logo{
-  margin-top: px;
-  margin-bottom: px;
-  margin-left: px;
-  margin-right: px;
+  vertical-align: top;
+  margin-top: 90px;
+  margin-left: 50px;
+
 }
 
 img#phtot-logo{
   margin-top: px;
-  margin-bottom: px;
   margin-left: px;
-  margin-right: px;
 }
 
 img#mail-logo{
   margin-top: px;
-  margin-bottom: px;
   margin-left: px;
-  margin-right: px;
 }
 
 #forth-big-container{
