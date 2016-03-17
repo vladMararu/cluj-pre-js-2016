@@ -76,7 +76,7 @@ label{
   left: 45px;
 }
 
-input{
+#text-areas input{
     background-color : #f2f2f2;
     border: 0px solid;
     height: 25px;
@@ -153,7 +153,7 @@ div#third-cont{
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center;
-  font-size: 22px;
+  font-size: 16px;
   text-align: center;
   color:  #ffffff;
   height: 300px;
@@ -161,60 +161,133 @@ div#third-cont{
 
 #third-big-container p:first-of-type{
   font-weight: bold;
+  margin: -12px;
+  font-size: 20px;
 
 }
 
-#third-big-container p:last-of-type{
-  //width: 400px;
-
+#third-big-container p span{
+  width: 350px;
+  display: inline-block;
+  font-size: 20px;
+  padding: 16px;
 }
-
 
 img#phone-logo{
   vertical-align: top;
   margin-top: 90px;
-  margin-left: -70px;
+  margin-left: 15px;
 }
 
 img#clock-logo{
   vertical-align: bottom;
-  margin-top: 150px;
-  margin-left: -20px;
+  margin-top: 140px;
+  margin-left: -12px;
 }
 
 img#position-logo{
   vertical-align: bottom;
-  margin-left: 20px;
+  margin-left: 23px;
   margin-bottom: 30px;
 }
 
 img#music-logo{
   vertical-align: top;
-  margin-top: 70px;
+  margin-top: 85px;
   margin-left: 50px;
 }
 
 img#weather-logo{
   vertical-align: top;
-  margin-top: 90px;
-  margin-left: 50px;
+  margin-top: 105px;
+  margin-left: 46px;
 
 }
 
-img#phtot-logo{
-  margin-top: px;
-  margin-left: px;
+img#photo-logo{
+  vertical-align: bottom;
+  margin-bottom: -3px;
+  margin-left: 10px;
 }
 
 img#mail-logo{
-  margin-top: px;
-  margin-left: px;
+  vertical-align: bottom;
+  margin-bottom: 7px;
+  margin-left: 19px;
 }
 
-#forth-big-container{
+div#forth-big-container{
   background-color: #FFFFFF;
+  text-align: center;
 }
 
-#fifth-big-container{
+div#forth-big-container>p{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+table{
+  border: 1px solid black;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+
+td{
+  //border-collapse: collapse;
+}
+
+ td{
+  border: 1px solid black;
+
+}
+
+ div#forth-big-container input {
+  padding:		9px 38px;
+ 	font-size:		14px;
+ 	background-color:	#0099ff;
+ 	font-weight:lighter;
+ 	color:	#FFFFFF;
+  border: 0px solid;
+  border-radius: 4px;
+  margin: 34px;
+}
+
+div#fifth-big-container{
   background-color: #e6e6e6;
+  padding-top: 45px;
+}
+
+div#inside-big-cont{
+  overflow: hidden;
+}
+
+div#cont-left{
+  float: left;
+  margin-top: 60px;
+  margin-left: 550px;
+}
+
+div#cont-left p:nth-child(5){
+  color: #b3b3b3;
+  font-size: 11px;
+  margin-top: 75px;
+}
+
+
+
+div#cont-left img:nth-child(1){
+  margin-top: -50px;
+}
+
+div#fifth-big-container p span{
+  width: 280px;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+div#cont-right{
+  float: right;
 }
