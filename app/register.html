@@ -3,6 +3,7 @@
   <head>
     <title>Register Page</title>
     <link rel="stylesheet" type="text/css" href="styleRegister.css">
+    <script	type="text/javascript" src="functionalityRegister.js"></script>
   </head>
 
   <body>
@@ -10,34 +11,33 @@
       <div id="container-in-first-container">
           <div class="small-left-container">
             <img src="../core/assets/logo-top.png" alt="logo picture">
-            <h1>Startup Landing Page For Your Product</h1>
-            <h3>The world's leading Lorem ipsum dolor sit amet, consecteur adipisicing
+            <p><span id="span1">Startup Landing Page For Your Product</span></p>
+            <p><span id="span2">The world's leading Lorem ipsum dolor sit amet, consecteur adipisicing
                elit, sed do
-              <a href="http://www.w3schools.com/html/">Learn more</a>
-            </h3>
+              <a id="link-learn-more" href="http://www.w3schools.com/html/">Learn more</a></span>
+            </p>
 
-            <h5>AS FEATURED IN:</h5>
-            <img src="../core/assets/tnw-logo.png" alt="logo picture1">
-            <img src="../core/assets/forbes-logo.png" alt="logo picture2">
-            <img src="../core/assets/natgeo-logo.png" alt="logo picture3">
-            <img src="../core/assets/finextra-logo.png" alt="logo picture4">
+            <p>AS FEATURED IN:</p>
+            <img class= "img" src="../core/assets/tnw-logo.png" alt="logo picture1">
+            <img class= "img" src="../core/assets/forbes-logo.png" alt="logo picture2">
+            <img class= "img" src="../core/assets/natgeo-logo.png" alt="logo picture3">
+            <img class= "img" src="../core/assets/finextra-logo.png" alt="logo picture4">
           </div>
 
 
         <div id="form">
-          <br>
-          <h3>Sign up for an account</h3>
+          <h3>Sign up for an ACME account</h3>
           <p>Get Started Absolutely FREE</p>
           <p>NO CREDIT CARD NEEDED!</p>
 
           <form action="doSomething.php" method="post">
             <div id="text-areas">
-              <label>Your name</label><br>
-              <input type="text", name="name", size="30" required><br>
-              <label>Email</label><br>
-              <input type="email", name="email", size="30" required><br>
-              <label>Password</label><br>
-              <input type="password", name="pwd",  size="30", required><br><br>
+              <label id="l1">Your name</label><br>
+              <input id="name-field" class="txt-input" type="text", name="name", size="22" required><br>
+              <label id="l2">Email</label><br>
+              <input class="txt-input" type="email", name="email", size="22" required><br>
+              <label id="l3">Password</label><br>
+              <input class="txt-input" type="password", name="pwd",  size="22", required><br><br>
             </div>
             <div class="buttonContainer">
               <input  id="button" type="submit" value="Sign up free" >
@@ -172,9 +172,9 @@
           <td><img src="../core/assets/check-icon.png" alt="check-icon" style="width:20px;height:20px;"></td>
         </tr>
       </table>
-      
-      <a href="http://www.google.com/">
-        <input type="button" value="Sign up free" />
+
+      <a>
+        <input type="button" onClick="getFocus()" value="Sign up free" />
       </a>
 
     </div>

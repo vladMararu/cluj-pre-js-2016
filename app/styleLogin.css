@@ -43,8 +43,16 @@ input{
     height: 25px;
 }
 
+input:focus{
+  background-color: #ccf3ff;
+  border: 1px solid #33cfff;
+  outline: none;
+  padding-left: 10px;
+}
+
 label{
   line-height: 2;
+
 }
 
 #button{
