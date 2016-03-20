@@ -1,4 +1,5 @@
 Build the domain layer following what we learned today:
+
 1. Create and use the Song class
 2. Create and use the Playlist class
 3. Create and use the User class
