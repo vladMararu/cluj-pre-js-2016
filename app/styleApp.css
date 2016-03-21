@@ -1,5 +1,5 @@
 body{
-  background-color: #f2f2f2;
+  background-color: #e6e6e6;
 }
 
 div.first-cont{
@@ -10,9 +10,14 @@ div.first-cont{
 }
 
 div#text-areas{
-  margin: 40px 480px;
+  margin-left: 450px;
+  margin-top: 38px;
   display: inline-block;
+  background-image: url("../core/assets/search-icon.png");
+  background-repeat: no-repeat;
+  background-position: 6px 8px;
 }
+
 
 div#logo-top{
   float: left;
@@ -31,19 +36,23 @@ img{
   height: 45px;
 }
 
-input{
+div#text-areas input[type="text"]{
   height: 30px;
+  background-color:rgba(230, 230, 230, 0.25);
+  border-width:0px;
+  padding-left: 30px;
 
 }
 
 div.button-signin input{
-  padding:		9px 40px;
   font-size:		14px;
   background-color:	#0099ff;
   font-weight:lighter;
   color:			#FFFFFF;
-  border: 1px solid;
   border-radius: 4px;
+  font-weight: bold;
+  border: 0 solid;
+  padding: 8px 21px 8px 21px;
 }
 
 p span{
@@ -54,13 +63,101 @@ p span{
   font-weight: bold;
 }
 
+#span-id{
+  text-align: center;
+  padding-top: 55px;
+  font-size: 11px;
+}
+
 div.button-join p{
   text-align: center;
   font-size: 32px;
   color: #f2f2f2;
   font-weight: bold;
+  padding-top: 30px;
 }
 
-div.button-join{
+div.button-join input{
   text-align: center;
+  border: 0 solid;
+  padding: 12px 42px 12px 42px;
+  margin-left: 840px;
+  margin-top: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: #57db99;
+  text-align: center;
+  border-radius: 4px;
+}
+
+#footer{
+  color: #8c8c8c;
+  font-size: 10px;
+  margin-left: 400px;
+  margin-top: 90px;
+}
+
+div#music-container{
+  overflow: hidden;
+  margin-top: -150px;
+  margin-left: 400px;
+
+}
+
+div#music-container img{
+  height: 200px;
+
+}
+
+
+div#massive-pop{
+  float: left;
+  margin-right: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 6px -6px black;
+
+
+}
+
+div#up-all-night{
+  float: left;
+  margin-right: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+div#dj-killer{
+  float: left;
+  margin-right: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+div.albums-text span{
+  width: 300px;
+  font-size: 14px;
+  color: #bfbfbf;
+}
+
+div.albums-text p{
+  padding-left: 15px;
+  color:	#000000;
+  font-size: 19px;
+}
+
+div.albums-text{
+  position: relative;
+  top: 0px;
+  transition: transform .5s ease-in-out;
+
+}
+
+div.albums-text:hover{
+  transform: translate3d(0px, -20px, 0px);
+
+}
+
+div.albums-text img:hover{
+  background-color: red;
+  opacity:0.4;
 }
