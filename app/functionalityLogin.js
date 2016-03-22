@@ -1,12 +1,13 @@
 
-var json = JSON.parse(usersJSON);
+var usersArray = JSON.parse(usersJSON);
+
 
 function validateFields(form){
   var sum;
 
-  for(i in json){
-    var em = json[i].email;
-    var pw = json[i].password;
+  for(i in usersArray){
+    var em = usersArray[i].email;
+    var pw = usersArray[i].password;
 
     if(form.email.value == em && form.pwd.value == pw)
     { sum = true;
