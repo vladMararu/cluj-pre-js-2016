@@ -161,3 +161,16 @@ div.albums-text img:hover{
   background-color: red;
   opacity:0.4;
 }
+
+
+div#button-album1 {
+  height: 30px;
+}
+
+div#button-album1 input{
+  display: none;
+}
+
+div#button-album1:hover input{
+   display: block;
+}
