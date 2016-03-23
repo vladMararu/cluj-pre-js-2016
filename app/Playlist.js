@@ -1,7 +1,11 @@
-function Playlist(id, songs, title, description){
+var playllistArray = JSON.parse(playlistsJSON);
+
+function Playlist(id, title, imgSmall, imgBig, songs, description){
   this.id = id;
-  this.songs = songs;
   this.title = title;
+  this.imgSmall = imgSmall;
+  this.imgBig = imgBig;
+  this.songs = songs;
   this.description = description;
 }
 

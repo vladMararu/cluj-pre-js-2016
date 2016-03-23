@@ -35,5 +35,5 @@ User.prototype.setLogged = function(logged){
 }
 
 User.prototype.getLogged = function(){
-  return this.email;
+  return this.logged;
 }
