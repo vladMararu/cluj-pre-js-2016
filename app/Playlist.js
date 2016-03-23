@@ -9,6 +9,8 @@ function Playlist(id, title, imgSmall, imgBig, songs, description){
   this.description = description;
 }
 
+var Playlist1 = new Playlist();
+
 Playlist.prototype.setId = function(id){
   this.id = id;
 }
@@ -17,20 +19,36 @@ Playlist.prototype.getId = function(){
   return this.id;
 }
 
-Playlist.prototype.setSongs = function(songs){
-  this.songs = songs;
-}
-
-Playlist.prototype.getSongs = function(){
-  return this.songs
-}
-
 Playlist.prototype.setTitle = function(title){
   this.title = title;
 }
 
 Playlist.prototype.getTitle = function(){
   return this.title;
+}
+
+Playlist.prototype.setImgSmall = function(imgSmall){
+  this.imgSmall = imgSmall;
+}
+
+Playlist.prototype.getImgSmall = function(){
+  return this.imgSmall;
+}
+
+Playlist.prototype.setImgBig = function(imgBig){
+  this.imgBig = imgBig;
+}
+
+Playlist.prototype.getImgBig = function(){
+  return this.imgBig;
+}
+
+Playlist.prototype.setSongs = function(songs){
+  this.songs = songs;
+}
+
+Playlist.prototype.getSongs = function(){
+  return this.songs
 }
 
 Playlist.prototype.setDescription = function(description){
