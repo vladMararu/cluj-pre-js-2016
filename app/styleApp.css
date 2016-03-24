@@ -69,6 +69,9 @@ p span{
   font-size: 11px;
 }
 
+div.button-join{
+  text-align: center;
+}
 div.button-join p{
   text-align: center;
   font-size: 32px;
@@ -78,10 +81,8 @@ div.button-join p{
 }
 
 div.button-join input{
-  text-align: center;
   border: 0 solid;
   padding: 12px 42px 12px 42px;
-  margin-left: 840px;
   margin-top: 12px;
   font-weight: bold;
   color: white;
@@ -94,28 +95,29 @@ div.button-join input{
   color: #8c8c8c;
   font-size: 10px;
   margin-left: 400px;
-  margin-top: 90px;
+  margin-top: 270px;
 }
 
 div#music-container{
   overflow: hidden;
-  margin-top: -150px;
-  margin-left: 400px;
+  margin: -150px auto;
+  width: 1200px;
+
+  /*margin-top: -150px;
+  margin-left: 400px;*/
 
 }
 
 div#music-container img{
   height: 200px;
-
 }
 
 
 div#massive-pop{
   float: left;
   margin-right: 30px;
+  margin-left: 100px;
   background-color: #ffffff;
-  box-shadow: 0 8px 6px -6px black;
-
 
 }
 
@@ -123,14 +125,15 @@ div#up-all-night{
   float: left;
   margin-right: 30px;
   background-color: #ffffff;
-  box-shadow: 0 4px 2px -2px gray;
+
 }
 
 div#dj-killer{
   float: left;
   margin-right: 30px;
   background-color: #ffffff;
-  box-shadow: 0 4px 2px -2px gray;
+
+
 }
 
 div.albums-text span{
@@ -147,8 +150,10 @@ div.albums-text p{
 
 div.albums-text{
   position: relative;
-  top: 0px;
+  /*top: 0px;*/
   transition: transform .5s ease-in-out;
+
+  box-shadow: 0 12px 6px -6px #bfbfbf;
 
 }
 
@@ -158,19 +163,47 @@ div.albums-text:hover{
 }
 
 div.albums-text img:hover{
-  background-color: red;
   opacity:0.4;
 }
 
-
-div#button-album1 {
-  height: 30px;
+div.small-imgs-playlist {
+  background-color: rgba(153, 179, 255, 2);
+  height: 200px;
 }
 
-div#button-album1 input{
-  display: none;
+div.button-albums-style{
+  position:absolute;
+  margin-left: 85px;;
+  margin-top: -100px;
+  visibility:hidden;
 }
 
-div#button-album1:hover input{
-   display: block;
+
+.albums-text:hover > .button-albums-style{
+  visibility:visible;
+}
+
+
+div.button-albums-style input{
+  border: 0 solid;
+  padding: 10px 28px 10px 28px;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  background-color: #0099ff;
+  background-image: url("../core/assets/play-icon.png");
+  background-repeat: no-repeat;
+  background-position: 25px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+div#playlist-container1{
+  display:none;
+  background-color: lightblue;
+  height: 680px;
+  width: 470px;
+  position: fixed;
+  margin-left: 50px;
+  margin-top: -330px;
 }
