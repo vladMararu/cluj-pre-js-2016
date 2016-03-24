@@ -4,8 +4,8 @@
     <title>App Page</title>
     <link rel="stylesheet" type="text/css" href="styleApp.css">
     <script	type="text/javascript" src="../core/data/playlists.js"></script>
-    <script	type="text/javascript" src="Song.js"></script>
     <script	type="text/javascript" src="Playlist.js"></script>
+	  <script	type="text/javascript" src="Song.js"></script>
     <script	type="text/javascript" src="SearchService.js"></script>
   </head>
 
@@ -42,10 +42,12 @@
     <div id="music-container">
 
       <div class="albums-text" id="massive-pop">
-        <img src="../core/assets/massive-pop-hits.png" alt="massive picture">
-        <div id="button-album1"
-          <a href="register.html">
-            <input type="button" value="Explore playlist" />
+        <div class="small-imgs-playlist">
+          <img src="../core/assets/massive-pop-hits.png" alt="massive picture">
+       </div>
+        <div id="button-album1" class="button-albums-style"
+          <a>
+            <input type="button" value="    Explore playlist" />
           </a>
         </div>
         <p>Massive pop hits vol 1</p>
@@ -54,19 +56,37 @@
         </span></p>
       </div>
       <div class="albums-text" id="up-all-night">
-        <img src="../core/assets/up-all-night.png" alt="up-all-night picture">
+        <div class="small-imgs-playlist">
+          <img src="../core/assets/up-all-night.png" alt="up-all-night picture">
+        </div>
+        <div id="button-album2" class="button-albums-style"
+          <a>
+            <input type="button" onclick="showHidePlaylist('playlist-container1')" value="    Explore playlist" />
+          </a>
+        </div>
         <p>Up all night</p>
         <p><span>Lorem ipsum dolor sit amet, consectetur adipicing sed do eiusmod tempor
            incididunt
         </span></p>
       </div>
       <div class="albums-text" id="dj-killer">
-        <img src="../core/assets/dj-killer-mixes.png" alt="dj-killer picture">
+        <div class="small-imgs-playlist">
+          <img src="../core/assets/dj-killer-mixes.png" alt="dj-killer picture">
+        </div>
+        <div id="button-album3" class="button-albums-style"
+          <a>
+            <input type="button" onclick="generatePlaylist(2)" value="    Explore playlist" />
+          </a>
+        </div>
         <p>DJ Killer mixes</p>
         <p><span>Lorem ipsum dolor sit amet, consectetur adipicing sed do eiusmod tempor
            incididunt
          </span></p>
       </div>
+
+    </div>
+
+    <div id="playlist-container1">
 
     </div>
 

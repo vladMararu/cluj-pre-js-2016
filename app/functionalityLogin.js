@@ -5,7 +5,7 @@ var usersArray = JSON.parse(usersJSON);
 function validateFields(form){
   var sum;
 
-  for(i in usersArray){
+  for(var i in usersArray){
     var em = usersArray[i].email;
     var pw = usersArray[i].password;
 
@@ -19,7 +19,7 @@ function validateFields(form){
      sum= false;
     }
   }
-  if(sum == false){
+  if(sum === false){
     //showError();
     alert('Wrong credentials!');
   }

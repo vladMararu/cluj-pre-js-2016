@@ -29,8 +29,8 @@ function checkLogin(){
     var passwordFromJson = allUsersList[i].password;
 
     if (user1.getEmail() == emailFromJson && user1.getPassword() == passwordFromJson){
+      localStorage.setItem("userData", JSON.stringify(allUsersList[i]));
       user1.setLogged(true);
-      LoggedIn();
       return true;
     }
     return false;
