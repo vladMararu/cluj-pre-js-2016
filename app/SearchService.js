@@ -12,7 +12,9 @@ var numberOfSongsOfList2 = collectionPlaylistObjects[2].songs.length;
    var songsOfSpecificPlaylist;
    var iDiv = document.createElement('div');
    iDiv.id = 'playlist-container';
-   iDiv.style.cssText = 'position : fixed; background-color : lightblue; height : 680px; width: 470px; margin-left : 50px; margin-top : -620px; overflow-y : scroll;';
+   iDiv.className = 'container-playlist';
+   //iDiv.style.cssText = 'position : fixed; background-color : lightblue; height : 680px; width: 470px; margin-left : 50px; margin-top : -620px; overflow-y : scroll;';
+
    document.body.appendChild(iDiv);
 
    switch (idOfPlaylist) {

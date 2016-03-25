@@ -1,10 +1,18 @@
 var collectionSongObjects = [];
-var numberOfPlaylists =  playlistArray.length;
+var numberOfPlaylists = playlistArray.length;
 var numberOfSongs = 0;
 
-for(var i = 0; i < playlistArray.length; i++){
+for(var i = 0; i < numberOfPlaylists; i++){
 	numberOfSongs += playlistArray[i].songs.length;
 }
+
+var total = playlistArray.reduce(function(sum, acum) {
+  return sum + playlistArray.song;
+});
+
+
+
+
 
 function Song(songTitle, songAuthor, songLength, songListened, img){
   this.songTitle = songTitle;
@@ -54,6 +62,8 @@ Song.prototype.getImg = function(){
   return this.img;
 };
 
+// var currentPlaylist = playlistArray[j];
+// var song = currentPlaylist.songs[k];
 
 for(var j = 0; j < numberOfPlaylists; j++){
 	for(var k = 0; k < playlistArray[j].songs.length; k++){

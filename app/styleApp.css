@@ -198,7 +198,7 @@ div.button-albums-style input{
   border-radius: 4px;
 }
 
-div#playlist-container1{
+div#test-playlist-container1{
   display:none;
   background-color: lightblue;
   height: 680px;
@@ -206,4 +206,14 @@ div#playlist-container1{
   position: fixed;
   margin-left: 50px;
   margin-top: -330px;
+}
+
+div.container-playlist{
+  'position : fixed;
+  background-color : lightblue;
+  height : 680px;
+  width: 470px;
+  margin-left : 50px;
+  margin-top : -620px;
+  overflow-y : scroll;
 }

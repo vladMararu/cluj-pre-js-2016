@@ -1,6 +1,5 @@
-
-function User(email, password){
-  this.username = 'defaultName';
+function User(username, email, password){
+  this.username = username;
   this.email = email;
   this.password = password;
   this.logged = false;
@@ -23,7 +22,7 @@ User.prototype.getPassword = function(){
 };
 
 User.prototype.setEmail = function(email){
-  this.username = email;
+  this.email = email;
 };
 
 User.prototype.getEmail = function(){

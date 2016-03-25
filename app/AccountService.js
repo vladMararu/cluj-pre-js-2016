@@ -1,38 +1,32 @@
 var allUsersList = JSON.parse(usersJSON);
-
-var email;
-var password;
-
-function LoggedIn(){
-  alert('Logged in!');
-
-  // var fso = new ActiveXObject("Scripting.FileSystemObject");
-  // var a = fso.CreateTextFile("/home/vlad.mararu/work/cluj-pre-js-2016/app/test.txt", true);
-  // a.WriteLine('User logeed in now!');
-  // a.Close();
-}
-
-function LoggedOut(){
-  user1.setLogged(false);
-  alert('Logged out');
-}
-
-function checkLogin(){
-  email = document.getElementById('email').value;
-  password = document.getElementById('password').value;
-
-  var user1 = new User(email, password);
+var totalNumberUsers = allUsersList.length;
 
 
-  for(var i = 0; i < allUsersList.length; i++){
-    var emailFromJson = allUsersList[i].email;
-    var passwordFromJson = allUsersList[i].password;
+var usersObjectCollection = allUsersList.map(function(obj){
+  return new User(obj.userName, obj.email, obj.password);
+});
 
-    if (user1.getEmail() == emailFromJson && user1.getPassword() == passwordFromJson){
-      localStorage.setItem("userData", JSON.stringify(allUsersList[i]));
-      user1.setLogged(true);
+
+function isLoggedIn(){
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  var User1 = new User('default name', email, password);
+
+  var userFiltered = usersObjectCollection.filter(function(userA){
+    if(userA.email === User1.email && userA.password === User1.password){
+      return User1;
+    }
+  });
+
+  if (userFiltered.length !== 0){
+      localStorage.setItem('userData', JSON.stringify(userFiltered[0]));
+      User1.setUsername(userFiltered[0].username);
+      User1.setLogged(true);
       return true;
     }
     return false;
-  }
+}
+
+function LoggedOut(){
+  localStorage.setItem('userData', null);
 }

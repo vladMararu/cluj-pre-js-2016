@@ -1,5 +1,4 @@
 var playlistArray = JSON.parse(playlistsJSON);
-var collectionPlaylistObjects = [];
 
 function Playlist(id, title, imgSmall, imgBig, songs, description){
   this.id = id;
@@ -58,6 +57,6 @@ Playlist.prototype.getDescription = function(){
   return this.description;
 };
 
-for(var i = 0; i < playlistArray.length; i++){
-	collectionPlaylistObjects[i] = new Playlist(playlistArray[i].id, playlistArray[i].title, playlistArray[i].imageSmall, playlistArray[i].imageLarge, playlistArray[i].songs, playlistArray[i].description);
-}
+var collectionPlaylistObjects = playlistArray.map(function(obj){
+  return new Playlist(obj.id, obj.title, obj.imageSmall, obj.imageLarge, obj.songs, obj.description);
+});

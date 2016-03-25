@@ -1,31 +1,38 @@
 
 var usersArray = JSON.parse(usersJSON);
 
+function checkLogin(){
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
 
-function validateFields(form){
-  var sum;
-
-  for(var i in usersArray){
-    var em = usersArray[i].email;
-    var pw = usersArray[i].password;
-
-    if(form.email.value == em && form.pwd.value == pw)
-    { sum = true;
-      window.open('app.html', '_self', true);
-      break;
+  var userFiltered = usersArray.filter(function(obj){
+    if(obj.email === usersArray.email && obj.password === usersArray.password){
+      return obj;
     }
-    else
-    {
-     sum= false;
+  });
+
+  if (userFiltered.length !== 0){
+      localStorage.setItem('userData', JSON.stringify(userFiltered[0]));
+      return true;
     }
-  }
-  if(sum === false){
-    //showError();
-    alert('Wrong credentials!');
-  }
+    return false;
 }
 
-// function showError(){
-//   var text = 'Error!';
-//   document.getElementById('error-msg').appendChild(text);
+
+
+// function checkLogin(){
+//   var email = document.getElementById('email').value;
+//   var password = document.getElementById('password').value;
+//
+//   for(var i = 0; i < usersArray.length; i++){
+//     if(usersArray[i].email === email && usersArray[i].password === password){
+//       localStorage.setItem('userData', JSON.stringify(usersArray[i]));
+//       return true;
+//     }
+//     return false;
+//   }
 // }
+
+function LogOut(){
+  localStorage.setItem('userData', null);
+}
