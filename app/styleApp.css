@@ -209,11 +209,50 @@ div#test-playlist-container1{
 }
 
 div.container-playlist{
-  'position : fixed;
+  position : fixed;
   background-color : lightblue;
   height : 680px;
   width: 470px;
   margin-left : 50px;
   margin-top : -620px;
   overflow-y : scroll;
+}
+
+
+div#divContainerButton{
+  background-color : #FFFFFF;
+}
+
+input#button-close-playlist{
+  color : #0099ff;
+  background-color : #FFFFFF;
+  background-image: url("../core/assets/close-icon.png");
+  background-repeat: no-repeat;
+  border: none;
+  padding-left : 10px;
+  padding-right : 25px;
+  padding-top : 3px;
+  padding-bottom : 3px;
+  background-position: 63px 4.9px;
+  margin-left : 375px;
+}
+
+img#img-playlist{
+  height : 120px;
+}
+
+div#header-playlist{
+ background-color : #e6e6e6;
+}
+
+p.text-header{
+ display : inline;
+}
+
+p#parag-playlist{
+
+}
+
+p#title-playlist{
+
 }

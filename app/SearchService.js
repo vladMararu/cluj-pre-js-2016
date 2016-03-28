@@ -1,70 +1,206 @@
-var numberOfSongsOfList0 = collectionPlaylistObjects[0].songs.length;
-var numberOfSongsOfList1 = collectionPlaylistObjects[1].songs.length;
-var numberOfSongsOfList2 = collectionPlaylistObjects[2].songs.length;
 
- function showHidePlaylist(id) {
-    var e = document.getElementById(id);
-    e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+var JSON_Quote = {
+    "success": {
+        "total": 1
+    },
+    "contents": {
+        "quotes": [
+            {
+                "quote": "Be not afraid of greatness. Some are born great, some achieve greatness, and some have greatness thrust upon 'em....",
+                "length": "116",
+                "author": "William Shakespeare",
+                "tags": [
+                    "inspire"
+                ],
+                "category": "inspire",
+                "date": "2016-03-28",
+                "title": "Inspiring Quote of the day",
+                "background": "https://theysaidso.com/img/bgs/man_on_the_mountain.jpg",
+                "id": "FG7_PlYnhPFaWL79P5076QeF"
+            }
+        ]
+    }
+};
+
+function closePlaylist(){
+	var divPlaylistContainer = document.getElementById('playlist-container');
+	if (divPlaylistContainer) {
+		divPlaylistContainer.parentNode.removeChild(divPlaylistContainer);
+	}
  }
 
+function generateCloseButton(){
+	 var closeButtonDiv = document.createElement('div');
+	 closeButtonDiv.id = 'divContainerButton';
+	 document.getElementById('playlist-container').appendChild(closeButtonDiv);
 
- function generatePlaylist(idOfPlaylist){
-   var songsOfSpecificPlaylist;
-   var iDiv = document.createElement('div');
-   iDiv.id = 'playlist-container';
-   iDiv.className = 'container-playlist';
-   //iDiv.style.cssText = 'position : fixed; background-color : lightblue; height : 680px; width: 470px; margin-left : 50px; margin-top : -620px; overflow-y : scroll;';
+	 var buttonClose = document.createElement('input');
+   buttonClose.id = 'button-close-playlist';
+   buttonClose.type = 'button';
+   buttonClose.value = 'CLOSE';
+   buttonClose.onclick = closePlaylist;
 
-   document.body.appendChild(iDiv);
+	 closeButtonDiv.appendChild(buttonClose);
+}
 
-   switch (idOfPlaylist) {
-    case 0:
-        songsOfSpecificPlaylist = collectionSongObjects.slice(0, numberOfSongsOfList0);
-        break;
-    case 1:
-        songsOfSpecificPlaylist = collectionSongObjects.slice(numberOfSongsOfList0, numberOfSongsOfList0 + numberOfSongsOfList1);
-        break;
-    case 2:
-        songsOfSpecificPlaylist = collectionSongObjects.slice(numberOfSongsOfList0 + numberOfSongsOfList1, numberOfSongsOfList0 + numberOfSongsOfList1 + numberOfSongsOfList2);
-        break;
-  }
+function generateHeaderPlaylist(idOfPlaylist){
+	var currentPlaylist = collectionPlaylistObjects[idOfPlaylist];
+	var headerPlaylist = document.createElement('div');
+	headerPlaylist.id = 'header-playlist';
+	document.getElementById('playlist-container').appendChild(headerPlaylist);
 
 
-   for(var i = 0; i < songsOfSpecificPlaylist.length; i++){
+	var img = document.createElement("img");
+	img.id = 'img-playlist';
+	img.src = currentPlaylist.imgSmall;  ///////TO DO!
 
-     var innerDiv = document.createElement('div');
-     innerDiv.id = 'divSong';
+	headerPlaylist.appendChild(img);
 
-    //  innerDiv.style.width = '600px';
-    //  innerDiv.style.height = '100px';
-    //  innerDiv.style.backgroudColor = 'blue';
+ var paragraph = document.createElement('p');
+ var titlePlaylist = document.createElement('p');
 
-     iDiv.appendChild(innerDiv);
+ paragraph.id = 'parag-playlist';
+ paragraph.className = 'text-header';
 
-     var song = songsOfSpecificPlaylist[i];
+ titlePlaylist.id = 'title-playlist';
+ titlePlaylist.className = 'text-header';
 
-     var songTitle = document.createElement('div');
-     songTitle.innerText = song.getSongTitle();
-     innerDiv.appendChild(songTitle);
+ paragraph.textContent = 'Playing from:';
+ titlePlaylist.textContent = 'test name of playlist';
 
-     var songAuthor = document.createElement('div');
-     songAuthor.innerText = song.getSongAuthor();
-     innerDiv.appendChild(songAuthor);
+ headerPlaylist.appendChild(paragraph);
+ headerPlaylist.appendChild(titlePlaylist);
+}
 
-     var songLength = document.createElement('div');
-     songLength.innerText = song.getSongLength();
-     innerDiv.appendChild(songLength);
+function generateTablePlaylist(idOfPlaylist){
+	var currentPlaylist = collectionPlaylistObjects[idOfPlaylist];
 
-     var songListened = document.createElement('div');
-     songListened.innerText = song.getSongListened();
-     innerDiv.appendChild(songListened);
+	var songsObjCurrentPlaylist = currentPlaylist.songs.map(function(obj){
+  return new Song(obj.songTitle, obj.songAuthor, obj.songLength, obj.songListened, obj.image);
+  });
 
-     var img = document.createElement('div');
-     img.innerHTML = '<img src="' + song.getImg() + '"/>';
-     innerDiv.appendChild(img);
+	var innerDiv = document.createElement('div');
+	innerDiv.id = 'divSong';
+
+	document.getElementById('playlist-container').appendChild(innerDiv);
+
+
+
+	 var table = document.createElement('TABLE');
+   table.border='1';
+
+   var tableBody = document.createElement('TBODY');
+   table.appendChild(tableBody);
+
+	 innerDiv.appendChild(table);
+
+
+
+
+	for(var i = 0; i < songsObjCurrentPlaylist.length; i++){
+		var song = songsObjCurrentPlaylist[i];
+
+		var songTitle = document.createElement('div');
+		songTitle.innerText = song.getSongTitle();
+		innerDiv.appendChild(songTitle);
+
+		var songAuthor = document.createElement('div');
+		songAuthor.innerText = song.getSongAuthor();
+		innerDiv.appendChild(songAuthor);
+
+		var songLength = document.createElement('div');
+		songLength.innerText = convertSecToMin(song.getSongLength());
+		innerDiv.appendChild(songLength);
+
+		var songListened = document.createElement('div');
+		songListened.innerText = song.getSongListened();
+		innerDiv.appendChild(songListened);
+
+		var img = document.createElement('div');
+		img.innerHTML = '<img src="' + song.getImg() + '"/>';
+		innerDiv.appendChild(img);
+	}
+
+
+	//////////////// table////////////////
+	/* var innerTableDiv = document.createElement('div');
+		innerTableDiv.id = 'divTable';
+		iDiv.appendChild(innerTableDiv);
+
+		var parag = document.createElement('div');
+		parag.innerText = 'first parag';
+
+		innerTableDiv.appendChild(parag); */
+
+	/////////////end if table //////////////////
+
+}
+
+function generatePlaylist(idOfPlaylist){
+  var myElem = document.getElementById('playlist-container');
+
+  if(myElem === null){
+		 var iDiv = document.createElement('div');
+	   iDiv.id = 'playlist-container';
+	   iDiv.className = 'container-playlist';
+
+	   document.body.appendChild(iDiv);
+
+		 generateCloseButton();
+		 generateHeaderPlaylist(idOfPlaylist);
+		 generateTablePlaylist(idOfPlaylist);
+
    }
  }
 
- function closePlaylist(){
+ function getQuote() {
+  return new Promise(function(resolve, reject) {
+    var req = new XMLHttpRequest();
+    req.open('GET', 'http://quotes.rest/qod.json');
 
- }
+    req.onload = function() {
+      if (req.status >= 200 && req.status < 300) {
+        resolve(req.response);
+      }
+      else {
+        reject(Error(req.statusText));
+      }
+    };
+
+    req.onerror = function() {
+      reject(Error("Network Error"));
+    };
+
+    req.send();
+  });
+}
+
+function getQuote(){
+	var promise = new Promise(function(resolve, reject) {
+  var request = new XMLHttpRequest();
+
+  request.open('GET', 'http://quotes.rest/qod.json');
+  request.onload = function() {
+      if (request.status >= 200 && request.status < 300) {
+        resolve(request.response);
+      } else {
+        reject(Error(request.statusText));
+      }
+    };
+
+   request.onerror = function() {
+      reject(Error('Error fetching data.'));
+    };
+
+   request.send();
+  });
+
+  promise.then(function(data) {
+    //document.getElementsByTagName('body')[0].textContent = JSON.parse(data).value;
+		document.getElementById('quote').innerHTML = data.contents.quotes[0].quote;
+  }, function(error) {
+    document.getElementById('quote').innerHTML = JSON_Quote.contents.quotes[0].quote;
+  });
+}
+
+getQuote();

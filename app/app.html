@@ -7,6 +7,7 @@
     <script	type="text/javascript" src="utility.js"></script>
     <script	type="text/javascript" src="Playlist.js"></script>
 	  <script	type="text/javascript" src="Song.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script	type="text/javascript" src="SearchService.js"></script>
   </head>
 
@@ -30,12 +31,12 @@
         <p><span>Ready to listen to endless music on your favorite device?</span></p>
       </div>
 
-      <div class="button-join">
+      <div class="button-join" >
         <a href="register.html">
           <input type="button" value="JOIN NOW" />
         </a>
 
-        <p>Epic and debauched party mixes</p>
+        <p id="quote">Epic and debauched party mixes</p>
       </div>
 
     </div>
@@ -48,7 +49,7 @@
        </div>
         <div id="button-album1" class="button-albums-style"
           <a>
-            <input type="button" value="    Explore playlist" />
+            <input type="button" onclick="generatePlaylist(0)" value="    Explore playlist" />
           </a>
         </div>
         <p>Massive pop hits vol 1</p>
@@ -62,7 +63,7 @@
         </div>
         <div id="button-album2" class="button-albums-style"
           <a>
-            <input type="button" onclick="showHidePlaylist('test-playlist-container1')" value="    Explore playlist" />
+            <input type="button" onclick="generatePlaylist(1)" value="    Explore playlist" />
           </a>
         </div>
         <p>Up all night</p>
