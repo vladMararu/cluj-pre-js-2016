@@ -210,11 +210,11 @@ div#test-playlist-container1{
 
 div.container-playlist{
   position : fixed;
-  background-color : lightblue;
+  background-color : #FFFFFF;
   height : 680px;
-  width: 470px;
+  width: 540px;
   margin-left : 50px;
-  margin-top : -620px;
+  margin-top : -570px;
   overflow-y : scroll;
 }
 
@@ -234,7 +234,7 @@ input#button-close-playlist{
   padding-top : 3px;
   padding-bottom : 3px;
   background-position: 63px 4.9px;
-  margin-left : 375px;
+  margin-left : 442px;
 }
 
 img#img-playlist{
@@ -255,4 +255,62 @@ p#parag-playlist{
 
 p#title-playlist{
 
+}
+
+table#table-songs{
+  width: 96%;
+  background-color: #FFFFFF;
+  margin-left:auto;
+  margin-right:auto;
+  padding-top: 10px;
+
+}
+
+
+#table-header-songs{
+  background-color: #e6e6e6;
+  border: 0px;
+  color : #666666;
+  font-size: 13px;
+  height: 25px;
+}
+
+#bottom-table-tr{
+
+}
+
+#bottom-table-tr > td{
+  color : #737373;
+  font-size: 15px;
+}
+
+tr#table-header-songs td:first-child{
+  padding-left: 7px;
+  font-weight: bold;
+}
+
+tr#table-header-songs td:nth-child(2){
+  text-align: center;
+  font-weight: bold;
+}
+
+tr#table-header-songs td:nth-child(3){
+  text-align: center;
+  font-weight: bold;
+}
+
+.td-song{
+  text-align: center;
+  color : #666666;
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+#td-song-bottom{
+  border-bottom: 1px solid #e6e6e6;
+}
+
+#top-td{
+  font-size: 18px;
 }

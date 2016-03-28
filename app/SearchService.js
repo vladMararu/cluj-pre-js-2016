@@ -52,7 +52,7 @@ function generateHeaderPlaylist(idOfPlaylist){
 
 	var img = document.createElement("img");
 	img.id = 'img-playlist';
-	img.src = currentPlaylist.imgSmall;  ///////TO DO!
+	img.src = currentPlaylist.getImgSmall();
 
 	headerPlaylist.appendChild(img);
 
@@ -66,7 +66,7 @@ function generateHeaderPlaylist(idOfPlaylist){
  titlePlaylist.className = 'text-header';
 
  paragraph.textContent = 'Playing from:';
- titlePlaylist.textContent = 'test name of playlist';
+ titlePlaylist.textContent = currentPlaylist.getTitle();
 
  headerPlaylist.appendChild(paragraph);
  headerPlaylist.appendChild(titlePlaylist);
@@ -84,57 +84,69 @@ function generateTablePlaylist(idOfPlaylist){
 
 	document.getElementById('playlist-container').appendChild(innerDiv);
 
+	var table = document.createElement('TABLE');
+	table.id = 'table-songs';
+
+	var tr = document.createElement('TR');
+	tr.id = 'table-header-songs';
+  table.appendChild(tr);
+
+	var th1 = document.createElement('TD');
+	th1.innerHTML = 'SONG';
+	th1.setAttribute("colspan", 2);
+	var th2 = document.createElement('TD');
+	th2.innerHTML = 'LENGTH';
+	var th3 = document.createElement('TD');
+	th3.innerHTML = 'LISTENED';
+
+  tr.appendChild(th1);
+	tr.appendChild(th2);
+	tr.appendChild(th3);
 
 
-	 var table = document.createElement('TABLE');
-   table.border='1';
-
-   var tableBody = document.createElement('TBODY');
-   table.appendChild(tableBody);
-
-	 innerDiv.appendChild(table);
-
-
-
-
-	for(var i = 0; i < songsObjCurrentPlaylist.length; i++){
+  for(var i = 0; i < songsObjCurrentPlaylist.length; i++){
 		var song = songsObjCurrentPlaylist[i];
 
-		var songTitle = document.createElement('div');
-		songTitle.innerText = song.getSongTitle();
-		innerDiv.appendChild(songTitle);
+		var trBody1 =  document.createElement('TR');
+ 	  var trBody2 =  document.createElement('TR');
+		trBody2.id = 'bottom-table-tr';
+ 	  var tdBody1 = document.createElement('TD');
+		tdBody1.className = 'td-song';
+ 	  var tdBody2 = document.createElement('TD');
+		tdBody2.id = 'top-td';
+ 	  var tdBody3 = document.createElement('TD');
+		tdBody3.className = 'td-song';
+ 	  var tdBody4 = document.createElement('TD');
+		tdBody4.className = 'td-song';
+ 	  var tdBody5 = document.createElement('TD');
+		tdBody5.id = 'td-song-bottom';
 
-		var songAuthor = document.createElement('div');
-		songAuthor.innerText = song.getSongAuthor();
-		innerDiv.appendChild(songAuthor);
+    tdBody1.setAttribute("rowspan", 2);
+ 	  tdBody3.setAttribute("rowspan", 2);
+ 	  tdBody4.setAttribute("rowspan", 2);
 
-		var songLength = document.createElement('div');
-		songLength.innerText = convertSecToMin(song.getSongLength());
-		innerDiv.appendChild(songLength);
+	  tdBody1.innerHTML = '<img src="' + song.getImg() + '"/>';
+ 	  trBody1.appendChild(tdBody1);
 
-		var songListened = document.createElement('div');
-		songListened.innerText = song.getSongListened();
-		innerDiv.appendChild(songListened);
+	 	tdBody2.innerText = song.getSongTitle();
+    trBody1.appendChild(tdBody2);
 
-		var img = document.createElement('div');
-		img.innerHTML = '<img src="' + song.getImg() + '"/>';
-		innerDiv.appendChild(img);
+		tdBody3	.innerText = convertSecToMin(song.getSongLength());
+ 	  trBody1.appendChild(tdBody3);
+
+	  tdBody4.innerText = song.getSongListened();
+    trBody1.appendChild(tdBody4);
+
+		tdBody5.innerText = 'by ' + song.getSongAuthor();
+ 	  trBody2.appendChild(tdBody5);
+
+ 	  table.appendChild(trBody1);
+ 	  table.appendChild(trBody2);
 	}
 
-
-	//////////////// table////////////////
-	/* var innerTableDiv = document.createElement('div');
-		innerTableDiv.id = 'divTable';
-		iDiv.appendChild(innerTableDiv);
-
-		var parag = document.createElement('div');
-		parag.innerText = 'first parag';
-
-		innerTableDiv.appendChild(parag); */
-
-	/////////////end if table //////////////////
-
+	innerDiv.appendChild(table);
 }
+
 
 function generatePlaylist(idOfPlaylist){
   var myElem = document.getElementById('playlist-container');
@@ -153,27 +165,7 @@ function generatePlaylist(idOfPlaylist){
    }
  }
 
- function getQuote() {
-  return new Promise(function(resolve, reject) {
-    var req = new XMLHttpRequest();
-    req.open('GET', 'http://quotes.rest/qod.json');
 
-    req.onload = function() {
-      if (req.status >= 200 && req.status < 300) {
-        resolve(req.response);
-      }
-      else {
-        reject(Error(req.statusText));
-      }
-    };
-
-    req.onerror = function() {
-      reject(Error("Network Error"));
-    };
-
-    req.send();
-  });
-}
 
 function getQuote(){
 	var promise = new Promise(function(resolve, reject) {
