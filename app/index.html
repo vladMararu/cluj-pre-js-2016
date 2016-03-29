@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <script src="http://backbonejs.org/test/vendor/underscore.js"></script>
+        <script src="http://backbonejs.org/test/vendor/jquery.js"></script>
+        <script src="http://backbonejs.org/docs/js/jquery.lazyload.js"></script>
+        <script src="http://backbonejs.org/backbone.js"></script>
+        <script src="playlist/playlistModel.js"></script>
+        <script src="song/songModel.js"></script>
+        <script type="text/javascript">
+            $(function() {
+
+              //var song1 = new Song('song 1', 'author 1', 'length 1', 4, 'img.png');
+              //var song2 = new Song('song 2', 'author 2', 'length 2', 3, 'img2.png');
+
+              var response2 = [
+                {
+                  songTitle: "song 1",
+                  songAuthor: "author 1",
+                  songLength: "1:03",
+                  songListened: 2,
+                  img : null
+                },
+                {
+                  songTitle: "song 2",
+                  songAuthor: "author 2",
+                  songLength: "2:04",
+                  songListened: 43,
+                  img : null
+                }
+              ];
+
+              var songsCollection = new Songs();
+              songsCollection.set(response2);
+
+              var SongView = Backbone.View.extend({
+                tagName: 'li',
+                className: 'song-view',
+                template: _.template('<span class="song"><%= songTitle +", " + songAuthor + ", " + songLength + ", " + songListened + ", " + img %></span>'),
+                render: function () {
+                  this.$el.html(this.template(this.model.attributes));
+                  return this;
+                }
+              });
+
+              var SongsView = Backbone.View.extend({
+                template: _.template("<p>List of songs</p><div class='user'></div><ul class='songs-view'></ul>"),
+                _nestedView: [],
+                renderNestedView: function(view, el) {
+                  this._nestedView.push(view);
+                  el.append(view.el);
+                },
+                render: function () {
+                  this.$el.html(this.template());
+                  var that = this;
+                  var partEl = $(this.el.querySelector('.songs-view'));
+                  this.collection.forEach(function(model) {
+                      var songView = new SongView({
+                        model: model
+                      });
+                      songView.render();
+                      that.renderNestedView(songView, partEl);
+                  });
+                  return this;
+                }
+              });
+              var pageView = new SongsView({
+                el: document.getElementById('page'),
+                collection: songsCollection
+              });
+              pageView.render();
+            });
+        </script>
+    </head>
+
+    <body>
+      <p>Music page</p>
+      <div id="page"></div>
+    </body>
+</html>
