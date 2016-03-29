@@ -22,6 +22,11 @@ var JSON_Quote = {
     }
 };
 
+function changeColor(){
+    var element = document.getElementsByClassName('tr-song');
+    element.style.backgroundColor=(element.style.backgroundColor=='#ccf5ff')?('transparent'):('#ccf5ff');
+    }
+
 function closePlaylist(){
 	var divPlaylistContainer = document.getElementById('playlist-container');
 	if (divPlaylistContainer) {
@@ -108,8 +113,13 @@ function generateTablePlaylist(idOfPlaylist){
 		var song = songsObjCurrentPlaylist[i];
 
 		var trBody1 =  document.createElement('TR');
+    trBody1.className = 'tr-song';
+    //trBody1.onclick = changeColor;
+    //onclick="this.style.backgroundColor='red'"
  	  var trBody2 =  document.createElement('TR');
 		trBody2.id = 'bottom-table-tr';
+    trBody2.className = 'tr-song';
+    //trBody2.onclick = changeColor;
  	  var tdBody1 = document.createElement('TD');
 		tdBody1.className = 'td-song';
  	  var tdBody2 = document.createElement('TD');
@@ -189,7 +199,8 @@ function getQuote(){
 
   promise.then(function(data) {
     //document.getElementsByTagName('body')[0].textContent = JSON.parse(data).value;
-		document.getElementById('quote').innerHTML = data.contents.quotes[0].quote;
+		//document.getElementById('quote').innerHTML = data.contents.quotes[0].quote;
+    document.getElementById('quote').innerHTML = JSON_Quote.contents.quotes[0].quote;
   }, function(error) {
     document.getElementById('quote').innerHTML = JSON_Quote.contents.quotes[0].quote;
   });

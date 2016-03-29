@@ -214,7 +214,7 @@ div.container-playlist{
   height : 680px;
   width: 540px;
   margin-left : 50px;
-  margin-top : -570px;
+  margin-top : -590px;
   overflow-y : scroll;
 }
 
@@ -263,6 +263,7 @@ table#table-songs{
   margin-left:auto;
   margin-right:auto;
   padding-top: 10px;
+  border-spacing:0;
 
 }
 
@@ -281,7 +282,7 @@ table#table-songs{
 
 #bottom-table-tr > td{
   color : #737373;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 tr#table-header-songs td:first-child{
@@ -313,4 +314,7 @@ tr#table-header-songs td:nth-child(3){
 
 #top-td{
   font-size: 18px;
+}
+.td-song img{
+  margin-top: 5px;
 }
