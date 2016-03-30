@@ -4,76 +4,135 @@
         <script src="http://backbonejs.org/test/vendor/jquery.js"></script>
         <script src="http://backbonejs.org/docs/js/jquery.lazyload.js"></script>
         <script src="http://backbonejs.org/backbone.js"></script>
-        <script src="playlist/playlistModel.js"></script>
-        <script src="song/songModel.js"></script>
-        <script type="text/javascript">
-            $(function() {
 
-              //var song1 = new Song('song 1', 'author 1', 'length 1', 4, 'img.png');
-              //var song2 = new Song('song 2', 'author 2', 'length 2', 3, 'img2.png');
+        <link rel="stylesheet" type="text/css" href="styleApp.css">
 
-              var response2 = [
-                {
-                  songTitle: "song 1",
+        <script src="playlist/PlaylistModel.js"></script>
+        <script src="song/SongModel.js"></script>
+
+        <script src="app/baseView.js"></script>
+        <script src="app/homepageView.js"></script>
+        <script src="song/songItemView.js"></script>
+        <script src="song/songsListView.js"></script>
+
+        <script src="playlist/playlistsListView.js"></script>
+        <script src="playlist/playlistTableView.js"></script>
+
+    </head>
+
+    <body>
+      <div class="first-cont">
+        <div id="logo-top">
+          <img src="../core/assets/logo-top.png" alt="logo-icon">
+        </div>
+
+        <div id="text-areas">
+          <input  type="text" name="search" placeholder="Search Music" size="80" required>
+        </div>
+
+        <div class="button-signin">
+          <a href="login.html">
+            <input type="button" value="Sign in" />
+          </a>
+        </div>
+
+        <div id="span-id">
+          <p><span>Ready to listen to endless music on your favorite device?</span></p>
+        </div>
+
+        <div class="button-join" >
+          <a href="register.html">
+            <input type="button" value="JOIN NOW" />
+          </a>
+
+          <p id="quote">Loading quote...</p>
+        </div>
+      </div>
+
+      <div id="page"></div>
+
+
+      <script type="text/template" id="template-playlists-list-view">
+  		      <div class="playlists-list-view" id="music-container">                                       <!-- class="playlists-list-view"-->
+  		      </div>
+	    </script>
+
+      <script type="text/template" id="template-playlist-table-view">
+  		      <div class="albums-text" id="massive-pop">          <!-- class="playlist-table-view"-->
+                <img class="small-imgs-playlists" src="<%= imgBig %>"/>
+                <p class="title"><%= title %></p>
+                <p class="description"><%= description %></p>
+                <button type="button" class="open-btn">OPEN PLAYLIST</button>
+  		      </div>
+	    </script>
+
+      <script type="text/template" id="template-SongsListView">
+  		      <ul class="songs list view">
+  		      </ul>
+	    </script>
+
+    	<script type="text/template" id="template-SongInListView">
+        		<li class="song in-list view">
+        			<span class="songs"><%= songTitle +", " + songAuthor + ", " + songLength + ", " + songListened + ", " + img %></span>
+        		</li>
+    	</script>
+
+      <script type="text/javascript">
+            var mockSongs = [
+        				{
+                  songTitle : "song 1",
                   songAuthor: "author 1",
                   songLength: "1:03",
                   songListened: 2,
                   img : null
                 },
-                {
-                  songTitle: "song 2",
-                  songAuthor: "author 2",
-                  songLength: "2:04",
-                  songListened: 43,
+        				{
+                  songTitle : "song 2",
+                  songAuthor: "author 1",
+                  songLength: "1:03",
+                  songListened: 2,
+                  img : null
+        				},
+        				{
+                  songTitle : "song 3",
+                  songAuthor: "author 1",
+                  songLength: "1:03",
+                  songListened: 2,
                   img : null
                 }
-              ];
+        		];
 
-              var songsCollection = new Songs();
-              songsCollection.set(response2);
+            var mockPlaylists = [
+              {
+                id : 0,
+                title : 'title playlist 1',
+                imgSmall : '../core/assets/up-all-night-small.png',
+                imgBig : '../core/assets/up-all-night.png',
+                description : 'playlist 1 descritpion'
+              },
+              {
+                id : 1,
+                title : 'title playlist 2',
+                imgSmall : '../core/assets/up-all-night-small.png',
+                imgBig : '../core/assets/up-all-night.png',
+                description : 'playlist 1 descritpion'
+              },
+              {
+                id : 2,
+                title : 'title playlist 3',
+                imgSmall : '../core/assets/up-all-night-small.png',
+                imgBig : '../core/assets/up-all-night.png',
+                description : 'playlist 3 descritpion'
+              }
+            ];
 
-              var SongView = Backbone.View.extend({
-                tagName: 'li',
-                className: 'song-view',
-                template: _.template('<span class="song"><%= songTitle +", " + songAuthor + ", " + songLength + ", " + songListened + ", " + img %></span>'),
-                render: function () {
-                  this.$el.html(this.template(this.model.attributes));
-                  return this;
-                }
-              });
+        		var songsList = new Songs(mockSongs);
+            var playlistsList = new Playlists(mockPlaylists);
+        		var homepageView = new HomepageView({
+        			el: $('#page')[0]
+        		});
+        		homepageView.render();
+      </script>
 
-              var SongsView = Backbone.View.extend({
-                template: _.template("<p>List of songs</p><div class='user'></div><ul class='songs-view'></ul>"),
-                _nestedView: [],
-                renderNestedView: function(view, el) {
-                  this._nestedView.push(view);
-                  el.append(view.el);
-                },
-                render: function () {
-                  this.$el.html(this.template());
-                  var that = this;
-                  var partEl = $(this.el.querySelector('.songs-view'));
-                  this.collection.forEach(function(model) {
-                      var songView = new SongView({
-                        model: model
-                      });
-                      songView.render();
-                      that.renderNestedView(songView, partEl);
-                  });
-                  return this;
-                }
-              });
-              var pageView = new SongsView({
-                el: document.getElementById('page'),
-                collection: songsCollection
-              });
-              pageView.render();
-            });
-        </script>
-    </head>
-
-    <body>
-      <p>Music page</p>
-      <div id="page"></div>
     </body>
 </html>
