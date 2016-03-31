@@ -1,17 +1,19 @@
-var playlistsListView = BaseView.extend({
-  initialize: function () {
-    this.listenTo(this.collection, 'all', this.render);
-  },
-  template: function () {
+import { playlistTableView } from './playlistTableView.js';
+import { BaseView } from '../app/baseView.js';
+
+const PlaylistsListView = BaseView.extend({
+  template: function template() {
     return this.renderTemplate('#template-playlists-list-view');
   },
-  render: function () {
-    var that = this;
+  render: function render() {
+    const that = this;
     this.$el.html(this.template());
-    this.collection.models.forEach( function (model) {
-      var view = new playlistTableView({model: model});
+    this.collection.models.forEach(function (model) {
+      const view = new playlistTableView({model: model});
       view.render();
       that.$el.append(view.el);
     });
-  }
+  },
 });
+
+export { PlaylistsListView };

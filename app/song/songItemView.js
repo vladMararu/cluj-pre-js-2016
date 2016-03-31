@@ -1,8 +1,12 @@
-var songItemView = BaseView.extend({
-  template: function (values) {
+import { BaseView } from '../app/baseView.js';
+
+const songItemView = BaseView.extend({
+  template: function template(values) {
     return this.renderTemplate('#template-SongInListView', values);
   },
-  render: function () {
+  render: function render() {
     this.$el.html(this.template(this.model.attributes));
-  }
+  },
 });
+
+export { songItemView };

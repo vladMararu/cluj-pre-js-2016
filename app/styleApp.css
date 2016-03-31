@@ -98,43 +98,18 @@ div.button-join input{
   margin-top: 270px;
 }
 
-div#music-container{
+div.music-container{
   overflow: hidden;
   margin: -150px auto;
-  width: 1200px;
-
-  /*margin-top: -150px;
-  margin-left: 400px;*/
+  width: 70%;
+  margin-left: 380px;
 
 }
 
-div#music-container img{
+.img-playlist{
   height: 200px;
 }
 
-
-div#massive-pop{
-  float: left;
-  margin-right: 30px;
-  margin-left: 100px;
-  background-color: #ffffff;
-
-}
-
-div#up-all-night{
-  float: left;
-  margin-right: 30px;
-  background-color: #ffffff;
-
-}
-
-div#dj-killer{
-  float: left;
-  margin-right: 30px;
-  background-color: #ffffff;
-
-
-}
 
 div.albums-text span{
   width: 300px;
@@ -152,6 +127,9 @@ div.albums-text{
   position: relative;
   /*top: 0px;*/
   transition: transform .5s ease-in-out;
+  background-color: #ffffff;
+  float: left;
+  margin-right: 30px;
 
   box-shadow: 0 12px 6px -6px #bfbfbf;
 

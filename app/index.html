@@ -6,18 +6,6 @@
         <script src="http://backbonejs.org/backbone.js"></script>
 
         <link rel="stylesheet" type="text/css" href="styleApp.css">
-
-        <script src="playlist/PlaylistModel.js"></script>
-        <script src="song/SongModel.js"></script>
-
-        <script src="app/baseView.js"></script>
-        <script src="app/homepageView.js"></script>
-        <script src="song/songItemView.js"></script>
-        <script src="song/songsListView.js"></script>
-
-        <script src="playlist/playlistsListView.js"></script>
-        <script src="playlist/playlistTableView.js"></script>
-
     </head>
 
     <body>
@@ -53,16 +41,25 @@
 
 
       <script type="text/template" id="template-playlists-list-view">
-  		      <div class="playlists-list-view" id="music-container">                                       <!-- class="playlists-list-view"-->
+  		      <div class="music-container">
   		      </div>
 	    </script>
 
       <script type="text/template" id="template-playlist-table-view">
-  		      <div class="albums-text" id="massive-pop">          <!-- class="playlist-table-view"-->
-                <img class="small-imgs-playlists" src="<%= imgBig %>"/>
+  		      <div class="albums-text">
+                <div class="small-imgs-playlist">
+                  <img  class="img-playlist" src="<%= imgBig %>"/>
+                </div>
+
                 <p class="title"><%= title %></p>
                 <p class="description"><%= description %></p>
-                <button type="button" class="open-btn">OPEN PLAYLIST</button>
+
+                <div id="button-album1" class="button-albums-style"
+                    <a>
+                       <input type="button" value="     Explore playlist" />
+                    </a>
+                </div>
+
   		      </div>
 	    </script>
 
@@ -77,62 +74,6 @@
         		</li>
     	</script>
 
-      <script type="text/javascript">
-            var mockSongs = [
-        				{
-                  songTitle : "song 1",
-                  songAuthor: "author 1",
-                  songLength: "1:03",
-                  songListened: 2,
-                  img : null
-                },
-        				{
-                  songTitle : "song 2",
-                  songAuthor: "author 1",
-                  songLength: "1:03",
-                  songListened: 2,
-                  img : null
-        				},
-        				{
-                  songTitle : "song 3",
-                  songAuthor: "author 1",
-                  songLength: "1:03",
-                  songListened: 2,
-                  img : null
-                }
-        		];
-
-            var mockPlaylists = [
-              {
-                id : 0,
-                title : 'title playlist 1',
-                imgSmall : '../core/assets/up-all-night-small.png',
-                imgBig : '../core/assets/up-all-night.png',
-                description : 'playlist 1 descritpion'
-              },
-              {
-                id : 1,
-                title : 'title playlist 2',
-                imgSmall : '../core/assets/up-all-night-small.png',
-                imgBig : '../core/assets/up-all-night.png',
-                description : 'playlist 1 descritpion'
-              },
-              {
-                id : 2,
-                title : 'title playlist 3',
-                imgSmall : '../core/assets/up-all-night-small.png',
-                imgBig : '../core/assets/up-all-night.png',
-                description : 'playlist 3 descritpion'
-              }
-            ];
-
-        		var songsList = new Songs(mockSongs);
-            var playlistsList = new Playlists(mockPlaylists);
-        		var homepageView = new HomepageView({
-        			el: $('#page')[0]
-        		});
-        		homepageView.render();
-      </script>
-
+      <script src="../build/bundle.js"></script>
     </body>
 </html>
