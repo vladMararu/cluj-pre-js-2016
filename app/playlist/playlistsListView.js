@@ -2,6 +2,8 @@ import { playlistTableView } from './playlistTableView.js';
 import { BaseView } from '../app/baseView.js';
 
 const PlaylistsListView = BaseView.extend({
+  tagName: 'div',
+  className: 'music-container',
   template: function template() {
     return this.renderTemplate('#template-playlists-list-view');
   },

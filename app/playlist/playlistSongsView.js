@@ -1,11 +1,14 @@
-import { songItemView } from './songItemView.js';
+import { songItemView } from '../song/songItemView.js';
 import { BaseView } from '../app/baseView.js';
 
 const SongsListView = BaseView.extend({
+  tagName: 'div',
+  className: 'container-playlist',
+  id: 'playlist-container',
   initialize: function initialize() {
   },
   template: function template() {
-    return this.renderTemplate('#template-SongsListView');
+    return this.renderTemplate('#template-HeaderTableView');
   },
   render: function render() {
     const that = this;

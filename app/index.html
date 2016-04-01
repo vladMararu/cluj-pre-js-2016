@@ -33,7 +33,7 @@
             <input type="button" value="JOIN NOW" />
           </a>
 
-          <p id="quote">Loading quote...</p>
+          <p id="quote">Epic debauched party mixes</p>
         </div>
       </div>
 
@@ -41,38 +41,63 @@
 
 
       <script type="text/template" id="template-playlists-list-view">
-  		      <div class="music-container">
-  		      </div>
 	    </script>
 
       <script type="text/template" id="template-playlist-table-view">
-  		      <div class="albums-text">
-                <div class="small-imgs-playlist">
-                  <img  class="img-playlist" src="<%= imgBig %>"/>
-                </div>
-
-                <p class="title"><%= title %></p>
-                <p class="description"><%= description %></p>
-
-                <div id="button-album1" class="button-albums-style"
-                    <a>
-                       <input type="button" value="     Explore playlist" />
-                    </a>
-                </div>
-
-  		      </div>
+              <div class="small-imgs-playlist">
+                <img  class="img-playlist" src="<%= imgBig %>"/>
+              </div>
+              <p class="title"><%= title %></p>
+              <p class="description"><span><%= description %></span></p>
+              <div id="button-album1" class="button-albums-style"
+                  <a>
+                     <input type="button" value="     Explore playlist" />
+                  </a>
+              </div>
 	    </script>
 
-      <script type="text/template" id="template-SongsListView">
-  		      <ul class="songs list view">
-  		      </ul>
-	    </script>
 
-    	<script type="text/template" id="template-SongInListView">
-        		<li class="song in-list view">
-        			<span class="songs"><%= songTitle +", " + songAuthor + ", " + songLength + ", " + songListened + ", " + img %></span>
-        		</li>
-    	</script>
+
+      <script type="text/template" id="template-HeaderTableView">
+            <div id="divContainerButton">
+              <input id="button-close-playlist" type="button" value="CLOSE">
+            </div>
+            <div id="header-playlist">
+              <img  id="img-playlist" src="<%= imgSmall %>"/>
+              <p id="parag-playlist" class="text-header">Playing from:</p>
+              <p id="title-playlist" class="text-header"><%= title %></p>
+            </div>
+
+            <table id="table-songs">
+              <tr id="table-header-songs">
+                <td colspan="2">SONG</td>
+                <td>LENGTH</td>
+                <td>LISTENED</td>
+              </tr>
+            </table>
+      </script>
+
+      <script type="text/template" id="template-songRowView">
+            <tr class="tr-song">
+              <td rowspan="2" class ="td-song">
+                <img  class="td-song" src="<%= img %>"/>
+              </td>
+              <td id="top-td">
+                <%= songTitle %>
+              </td>
+              <td rowspan="2" class="td-song">
+                <%= songLength %>
+              </td>
+              <td rowspan="2" id="top-td" class="td-song">
+                <%= songListened %>
+              </td>
+            </tr>
+            <tr class="tr-song" id="bottom-table-tr">
+              <td id="td-song-bottom">
+                <%= songAuthor %>
+              </td>
+            </tr>
+      </script>
 
       <script src="../build/bundle.js"></script>
     </body>

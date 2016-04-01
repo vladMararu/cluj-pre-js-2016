@@ -1,5 +1,5 @@
 import { BaseView } from './baseView.js';
-import { SongsListView } from '../song/songsListView.js';
+import { SongsListView } from '../playlist/playlistSongsView.js';
 import { PlaylistsListView } from '../playlist/playlistsListView.js';
 
 const HomepageView = BaseView.extend({
