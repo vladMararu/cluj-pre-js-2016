@@ -12,8 +12,8 @@ const HomepageView = BaseView.extend({
     });
   },
   render: function render() {
-    // this.songsList.render();
-    // this.$el.append(this.songsList.el);
+    this.songsList.render();
+    this.$el.append(this.songsList.el);
     this.playlistsList.render();
     this.$el.append(this.playlistsList.el);
   },

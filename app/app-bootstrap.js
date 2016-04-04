@@ -1,4 +1,5 @@
 import { Songs } from './song/songCollection.js';
+import { Playlist } from './playlist/PlaylistModel.js';
 import { Playlists } from './playlist/playlistCollection.js';
 import { HomepageView } from './app/homepageView.js';
 
@@ -60,13 +61,30 @@ export function startApp() {
   ];
 
   const songsList = new Songs(mockSongs);
-  const playlistsList = new Playlists(mockPlaylists);
+  const play1 = new Playlist();
+  const play2 = new Playlist();
+
+  play1.set('imgBig', '../core/assets/up-all-night.png');
+  play2.set('imgBig', '../core/assets/up-all-night.png');
+
+  play1.set('imgSmall', '../core/assets/up-all-night-small.png');
+  play2.set('imgSmall', '../core/assets/up-all-night-small.png');
+
+  play1.set('songs', songsList);
+  play2.set('songs', songsList);
+  play2.set('id', 1);
+
+  const playlistsList = new Playlists([play1]);
+  // const playlistsList = new Playlists(mockPlaylists);
   const homepageViewItem = new HomepageView({
     el: $('#page')[0],
     songsList: songsList,
     playlistsList: playlistsList
   });
   homepageViewItem.render();
+  $('.button-explore').on('click', function () {
+    songsList.addMockUser();
+  });
 }
 
 // export { songsList };
