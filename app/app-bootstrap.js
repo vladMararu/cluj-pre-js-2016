@@ -1,6 +1,8 @@
-import { Songs } from './song/songCollection.js';
-import { Playlists } from './playlist/playlistCollection.js';
+import { SongsCollection } from './song/SongsCollection.js';
+import { PlaylistModel } from './playlist/PlaylistModel.js';
+import { PlaylistsCollection } from './playlist/PlaylistsCollection.js';
 import { HomepageView } from './app/homepageView.js';
+import { PlaylistsListView } from './playlist/playlistsListView.js';
 
 
 export function startApp() {
@@ -59,14 +61,28 @@ export function startApp() {
     },
   ];
 
-  const songsList = new Songs(mockSongs);
-  const playlistsList = new Playlists(mockPlaylists);
+  const songsList = new SongsCollection(mockSongs);
+
+  const playlistsList = new PlaylistsCollection();
+  const playlistsJSON = new PlaylistsCollection();
+
+  playlistsJSON.fetch({
+    success: () => {
+      const playlistsView = new PlaylistsListView({
+        el: document.getElementsByClassName('music-container'),
+        collection: playlistsJSON,
+      });
+      playlistsView.render();
+    },
+    error: (errorResponse) => {
+      console.log(errorResponse);
+    },
+  });
+
   const homepageViewItem = new HomepageView({
     el: $('#page')[0],
     songsList: songsList,
-    playlistsList: playlistsList
+    playlistsList: playlistsList,
   });
   homepageViewItem.render();
 }
-
-// export { songsList };

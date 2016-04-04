@@ -1,17 +1,11 @@
-import { Songs } from '../song/songCollection.js';
+import { SongsCollection } from '../song/SongsCollection.js';
 
-const Playlist = Backbone.Model.extend({
-  defaults: {
-    id: 0,
-    title: 'default title',
-    imgSmall: 'default url-img-small',
-    imgBig: 'default url-img-big',
-    description: 'default description of the playlist',
-  },
+const PlaylistModel = Backbone.Model.extend({
+  url: 'http://localhost:3000/playlists',
   constructor: function constructor() {
-    this.songs = new Songs();
+    this.songs = new SongsCollection();
     Backbone.Model.apply(this, arguments);
   },
 });
 
-export { Playlist };
+export { PlaylistModel };

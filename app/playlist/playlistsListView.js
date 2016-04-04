@@ -11,7 +11,7 @@ const PlaylistsListView = BaseView.extend({
     const that = this;
     this.$el.html(this.template());
     this.collection.models.forEach(function (model) {
-      const view = new playlistTableView({model: model});
+      const view = new playlistTableView({ model: model });
       view.render();
       that.$el.append(view.el);
     });
