@@ -6,30 +6,24 @@ const PlaylistsCollection = Backbone.Collection.extend({
   url: 'http://localhost:3000/playlists',
   parse(result) {
     return result.map((playlist) => {
+      const attrPlaylist = _.omit(playlist, 'songs');
       const playlistModel = new PlaylistModel();
-      playlistModel.set(playlist);
+      playlistModel.set(attrPlaylist);
 
       const songsColection = new SongsCollection();
 
-      debugger;
       songsColection.set(
-        () => {
-          debugger;
-          const songsList = playlist.songs.map(function (song) {
-            return {
-              id: song.gsx$id.$t,
-              album: song.gsx$album.$t,
-              name: song.gsx$name.$t,
-              length: song.gsx$length.$t,
-              image: song.songs.gsx$image.$t,
-            };
-          });
-          return new SongsCollection(songsList);
-        }
+        playlist.songs.map((song) => {
+          return {
+            id: song.gsx$id.$t,
+            album: song.gsx$album.$t,
+            name: song.gsx$name.$t,
+            length: song.gsx$length.$t,
+            image: song.gsx$image.$t,
+          };
+        })
     );
-
-      playlistModel.set(songsColection);
-
+      playlistModel.setSongs(songsColection);
       return playlistModel;
     });
   },

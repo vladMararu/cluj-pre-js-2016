@@ -63,9 +63,9 @@
               <input id="button-close-playlist" type="button" value="CLOSE">
             </div>
             <div id="header-playlist">
-              <img  id="img-playlist" src=""/>
+              <img  id="img-playlist" src="" />
               <p id="parag-playlist" class="text-header">Playing from:</p>
-              <p id="title-playlist" class="text-header">Dummy title</p>
+              <p id="title-playlist" class="text-header"></p>
             </div>
 
             <table id="table-songs">
@@ -80,21 +80,21 @@
       <script type="text/template" id="template-songRowView">
             <tr class="tr-song">
               <td rowspan="2" class ="td-song">
-                <img  class="td-song" src="<%= img %>"/>
+                <img  class="td-song" src="<%= image %>"/>
               </td>
               <td id="top-td">
-                <%= songTitle %>
+                <%= name %>
               </td>
               <td rowspan="2" class="td-song">
-                <%= songLength %>
+                <%= length %>
               </td>
               <td rowspan="2" id="top-td" class="td-song">
-                <%= songListened %>
+                test
               </td>
             </tr>
             <tr class="tr-song" id="bottom-table-tr">
               <td id="td-song-bottom">
-                <%= songAuthor %>
+                <%= album %>
               </td>
             </tr>
       </script>

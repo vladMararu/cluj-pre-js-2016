@@ -1,12 +1,13 @@
 import { BaseView } from '../app/baseView.js';
+import { SongsListView } from '../song/SongsListView.js';
 
 const playlistTableView = BaseView.extend({
   tagName: 'div',
   className: 'albums-text',
   events: {
-    'click #explore-btn': 'SongsListView',
+    'click #explore-btn': 'renderSongsList',
   },
-  initialize: function initialize() {
+  initialize: function () {
     this.listenTo(this.collection, 'all', this.render);
   },
   template: function template(values) {
@@ -14,6 +15,13 @@ const playlistTableView = BaseView.extend({
   },
   render: function render() {
     this.$el.html(this.template(this.model.attributes));
+  },
+  renderSongsList: function () {
+    const songListView = new SongsListView({
+      el: document.getElementsByClassName('container-playlist'),
+      collection: playlistsJSON,
+    });
+    songListView.render();
   },
 });
 
