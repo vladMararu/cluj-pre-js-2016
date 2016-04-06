@@ -5,21 +5,20 @@ const playlistTableView = BaseView.extend({
   tagName: 'div',
   className: 'albums-text',
   events: {
-    'click #explore-btn': 'renderSongsList',
+    'click .button-explore': 'renderSongsList',
   },
-  initialize: function () {
-    this.listenTo(this.collection, 'all', this.render);
-  },
+
   template: function template(values) {
     return this.renderTemplate('#template-playlist-table-view', values);
   },
   render: function render() {
     this.$el.html(this.template(this.model.attributes));
   },
-  renderSongsList: function () {
+  renderSongsList: function renderSongs() {
+    // debugger;
     const songListView = new SongsListView({
-      el: document.getElementsByClassName('container-playlist'),
-      collection: playlistsJSON,
+      // el: document.getElementsByClassName('albums-text'),
+      // collection: playlistsJSON,
     });
     songListView.render();
   },

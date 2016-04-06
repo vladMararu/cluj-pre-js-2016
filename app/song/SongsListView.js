@@ -5,6 +5,16 @@ const SongsListView = BaseView.extend({
   tagName: 'div',
   className: 'container-playlist',
   id: 'playlist-container',
+  events: {
+    'click #explore-btn': 'removeContainer',
+  },
+  removeContainer: () => {
+    debugger;
+    this.model.remove();
+  },
+  // initialize: () => {
+  //   this.listenTo(this.collection, 'all', this.render);
+  // },
   template: function template() {
     return this.renderTemplate('#template-HeaderTableView');
   },

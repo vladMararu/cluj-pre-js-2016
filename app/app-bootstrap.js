@@ -4,7 +4,6 @@ import { PlaylistsCollection } from './playlist/PlaylistsCollection.js';
 import { HomepageView } from './app/homepageView.js';
 import { PlaylistsListView } from './playlist/playlistsListView.js';
 
-
 export function startApp() {
   const playlistsList = new PlaylistsCollection();
   const playlistsJSON = new PlaylistsCollection();
