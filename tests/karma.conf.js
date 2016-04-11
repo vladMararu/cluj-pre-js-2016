@@ -4,8 +4,8 @@ module.exports = function(config) {
         frameworks: ["jasmine"],
         files: [
             'core/**/*.js',
-            'app/User.js',
             'app/**/*.js',
+            'app/cell.js',
             'tests/unit/**/*.js'
         ],
         autoWatch: true,
